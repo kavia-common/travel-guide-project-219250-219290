@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 // PUBLIC_INTERFACE
 export default function Home() {
@@ -11,14 +12,14 @@ export default function Home() {
         <p className="description" style={{ marginTop: 0 }}>
           Discover destinations, plan trips, and explore local experiences.
         </p>
-        <a
+        <Link
           className="App-link"
-          href="#discover"
-          onClick={(e) => e.preventDefault()}
-          aria-label="Discover destinations (demo link)"
+          to="/explore"
+          aria-label="Start exploring destinations"
+          role="button"
         >
           Start Exploring →
-        </a>
+        </Link>
       </header>
     </div>
   );

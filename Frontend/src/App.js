@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Explore from './pages/Explore';
 
 // PUBLIC_INTERFACE
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
           {/* Keep existing or future navigation intact by centralizing routes here */}
           <Route path="*" element={<NotFound />} />
         </Routes>
