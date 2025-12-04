@@ -17,6 +17,9 @@ import DestinationDetailsPage from './pages/DestinationDetails';
 import SafetyHub from './pages/SafetyHub';
 import SafetyDetails from './pages/SafetyDetails';
 import { SafetyProvider } from './safety/SafetyContext';
+import LanguageHub from './pages/LanguageHub';
+import Phrasebook from './pages/Phrasebook';
+import { LanguageProvider } from './language/LanguageContext';
 
 /**
  * PUBLIC_INTERFACE
@@ -47,34 +50,38 @@ function App() {
         {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
       </button>
 
-      <BrowserRouter>
-        <NotificationsProvider>
-          <PhotosProvider>
-            <ReviewsProvider>
-              <SafetyProvider>
-                <Header />
-                <main id="main" role="main" tabIndex={-1}>
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/explore" element={<Explore />} />
-                    <Route path="/destinations/:id" element={<DestinationDetailsPage />} />
-                    <Route path="/reviews" element={<ReviewsDemoPage />} />
-                    <Route path="/notifications" element={<NotificationsPage />} />
-                    <Route path="/currency" element={<CurrencyPage />} />
-                    <Route path="/gallery" element={<GalleryPage />} />
-                    <Route path="/gallery/upload" element={<UploadPhotoPage />} />
-                    <Route path="/gallery/:photoId" element={<GalleryPage />} />
-                    <Route path="/safety" element={<SafetyHub />} />
-                    <Route path="/safety/:regionCode" element={<SafetyDetails />} />
-                    {/* Keep existing or future navigation intact by centralizing routes here */}
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </main>
-              </SafetyProvider>
-            </ReviewsProvider>
-          </PhotosProvider>
-        </NotificationsProvider>
-      </BrowserRouter>
+      <LanguageProvider>
+        <BrowserRouter>
+          <NotificationsProvider>
+            <PhotosProvider>
+              <ReviewsProvider>
+                <SafetyProvider>
+                  <Header />
+                  <main id="main" role="main" tabIndex={-1}>
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/explore" element={<Explore />} />
+                      <Route path="/destinations/:id" element={<DestinationDetailsPage />} />
+                      <Route path="/reviews" element={<ReviewsDemoPage />} />
+                      <Route path="/notifications" element={<NotificationsPage />} />
+                      <Route path="/currency" element={<CurrencyPage />} />
+                      <Route path="/gallery" element={<GalleryPage />} />
+                      <Route path="/gallery/upload" element={<UploadPhotoPage />} />
+                      <Route path="/gallery/:photoId" element={<GalleryPage />} />
+                      <Route path="/safety" element={<SafetyHub />} />
+                      <Route path="/safety/:regionCode" element={<SafetyDetails />} />
+                      <Route path="/language" element={<LanguageHub />} />
+                      <Route path="/phrasebook" element={<Phrasebook />} />
+                      {/* Keep existing or future navigation intact by centralizing routes here */}
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </main>
+                </SafetyProvider>
+              </ReviewsProvider>
+            </PhotosProvider>
+          </NotificationsProvider>
+        </BrowserRouter>
+      </LanguageProvider>
     </div>
   );
 }

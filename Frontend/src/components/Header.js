@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 import NotificationsBell from './NotificationsBell';
+import LanguageSelector from '../language/components/LanguageSelector';
 
 /**
  * PUBLIC_INTERFACE
@@ -19,6 +20,15 @@ export default function Header() {
         </Link>
         <nav className="tg-nav" role="navigation" aria-label="Main navigation">
           <ul className="tg-nav__list">
+            <li>
+              <NavLink
+                to="/language"
+                className={({ isActive }) => isActive ? 'tg-nav__link is-active' : 'tg-nav__link'}
+                aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
+              >
+                🌐 Language
+              </NavLink>
+            </li>
             <li>
               <NavLink
                 to="/"
@@ -88,6 +98,9 @@ export default function Header() {
             </li>
           </ul>
         </nav>
+        <div className="tg-header__tools" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 12 }}>
+          <LanguageSelector compact id="header-language-selector" />
+        </div>
       </div>
     </header>
   );
