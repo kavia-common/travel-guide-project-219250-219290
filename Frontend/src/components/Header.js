@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
+import NotificationsBell from './NotificationsBell';
 
 /**
  * PUBLIC_INTERFACE
  * Header component that renders the site logo/title and navigation.
  * Includes accessible semantics and keyboard-focusable links.
+ * Adds a notifications bell with unread badge and dropdown panel.
  */
 export default function Header() {
   return (
@@ -35,6 +37,18 @@ export default function Header() {
               >
                 Explore
               </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/notifications"
+                className={({ isActive }) => isActive ? 'tg-nav__link is-active' : 'tg-nav__link'}
+                aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
+              >
+                Notifications
+              </NavLink>
+            </li>
+            <li aria-label="Open notifications menu" style={{ display: 'flex', alignItems: 'center' }}>
+              <NotificationsBell />
             </li>
           </ul>
         </nav>

@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Explore from './pages/Explore';
 import Header from './components/Header';
+import NotificationsPage from './pages/Notifications';
+import { NotificationsProvider } from './notifications/NotificationsContext';
 
 /**
  * PUBLIC_INTERFACE
@@ -36,15 +38,18 @@ function App() {
       </button>
 
       <BrowserRouter>
-        <Header />
-        <main id="main" role="main" tabIndex={-1}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/explore" element={<Explore />} />
-            {/* Keep existing or future navigation intact by centralizing routes here */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+        <NotificationsProvider>
+          <Header />
+          <main id="main" role="main" tabIndex={-1}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/notifications" element={<NotificationsPage />} />
+              {/* Keep existing or future navigation intact by centralizing routes here */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+        </NotificationsProvider>
       </BrowserRouter>
     </div>
   );

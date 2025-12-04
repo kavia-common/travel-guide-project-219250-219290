@@ -1,0 +1,166 @@
+.tg-bell {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.06s ease;
+}
+
+.tg-bell:hover {
+  background: var(--bg-secondary);
+}
+
+.tg-bell:active {
+  transform: translateY(1px);
+}
+
+.tg-bell__badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff8a4c, #e0522c);
+  color: #fff;
+  font-size: 11px;
+  line-height: 18px;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(224, 82, 44, 0.35);
+}
+
+.tg-notify-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: min(92vw, 360px);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+  padding: 8px;
+  z-index: 120;
+}
+
+.tg-notify-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.tg-notify-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.tg-notify-actions {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.tg-notify-action {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tg-notify-action:hover {
+  background: var(--bg-secondary);
+}
+
+.tg-notify-list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0 0;
+  max-height: 340px;
+  overflow: auto;
+}
+
+.tg-notify-item {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: start;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.tg-notify-item:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.tg-notify-item__icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: color-mix(in srgb, #ff8a4c 22%, transparent);
+}
+
+.tg-notify-item__content {
+  min-width: 0;
+}
+
+.tg-notify-item__title {
+  margin: 0 0 2px 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tg-notify-item__meta {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.tg-notify-item__cta {
+  background: transparent;
+  border: 0;
+  color: var(--text-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.tg-notify-footer {
+  padding: 8px;
+  text-align: center;
+}
+
+.tg-notify-viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  color: inherit;
+  border: 1px solid var(--border-color);
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+  .tg-bell {
+    width: 34px;
+    height: 34px;
+  }
+}
