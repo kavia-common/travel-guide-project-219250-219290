@@ -24,6 +24,7 @@ import { LanguageProvider } from './language/LanguageContext';
 import { TransportProvider } from './transport/TransportContext';
 import TransportHub from './transport/pages/TransportHub';
 import TransportDetails from './transport/pages/TransportDetails';
+import ItineraryPage from './pages/Itinerary';
 
 /**
  * PUBLIC_INTERFACE
@@ -81,6 +82,7 @@ function App() {
                         {/* Transport feature routes */}
                         <Route path="/transport" element={<TransportHub />} />
                         <Route path="/transport/:regionCode" element={<TransportDetails />} />
+                        <Route path="/itinerary" element={<ItineraryPage />} />
 
                         {/* Keep existing or future navigation intact by centralizing routes here */}
                         <Route path="*" element={<NotFound />} />

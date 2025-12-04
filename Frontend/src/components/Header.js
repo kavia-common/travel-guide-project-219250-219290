@@ -102,6 +102,16 @@ export default function Header() {
                 Notifications
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/itinerary"
+                className={({ isActive }) => (isActive ? 'tg-nav__link is-active' : 'tg-nav__link')}
+                aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
+                aria-label="Open the itinerary planner"
+              >
+                🗺️ Itinerary
+              </NavLink>
+            </li>
             <li aria-label="Open notifications menu" style={{ display: 'flex', alignItems: 'center' }}>
               <NotificationsBell />
             </li>

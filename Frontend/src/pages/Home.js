@@ -23,14 +23,24 @@ export default function Home() {
         subtitle="Discover iconic cities, hidden gems, and unforgettable experiences across the globe."
         backgroundUrl={heroImg}
         cta={
-          <Link
-            to="/explore"
-            className="tg-btn"
-            aria-label="Start exploring destinations"
-            role="button"
-          >
-            Start Exploring →
-          </Link>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <Link
+              to="/itinerary"
+              className="tg-btn"
+              aria-label="Plan a trip with the itinerary planner"
+              role="button"
+            >
+              Plan a Trip →
+            </Link>
+            <Link
+              to="/explore"
+              className="tg-btn"
+              aria-label="Start exploring destinations"
+              role="button"
+            >
+              Start Exploring →
+            </Link>
+          </div>
         }
       />
 
