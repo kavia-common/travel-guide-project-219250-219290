@@ -68,6 +68,15 @@ export default function Header() {
             </li>
             <li>
               <NavLink
+                to="/transport"
+                className={({ isActive }) => (isActive ? 'tg-nav__link is-active' : 'tg-nav__link')}
+                aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
+              >
+                Transport
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/reviews"
                 className={({ isActive }) => isActive ? 'tg-nav__link is-active' : 'tg-nav__link'}
                 aria-current={({ isActive }) => (isActive ? 'page' : undefined)}

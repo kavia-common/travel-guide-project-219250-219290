@@ -1,0 +1,29 @@
+.responsive-cards {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .responsive-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .responsive-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.sticky-filters {
+  position: sticky;
+  top: 56px; /* below header */
+  z-index: 5;
+  background: var(--tg-surface, #fff);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--tg-border, #e5e7eb);
+}
+
+.tg-chip.selected {
+  background: var(--tg-primary, #2563eb);
+  color: #fff;
+}
+
+.tg-badge.bus { background: #2563eb22; color: #1e3a8a; }
+.tg-badge.train { background: #16a34a22; color: #065f46; }
+.tg-badge.taxi { background: #f59e0b22; color: #92400e; }
