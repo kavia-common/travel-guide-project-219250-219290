@@ -1,0 +1,130 @@
+:root {
+  --rv-border: var(--border-color, #e7e9ee);
+  --rv-bg: var(--bg-primary, #fff);
+  --rv-bg-muted: var(--bg-secondary, #f7f8fa);
+  --rv-text: var(--text-primary, #1e1f25);
+  --rv-muted: color-mix(in srgb, var(--text-primary) 60%, transparent);
+  --rv-accent1: #ff8a4c;
+  --rv-accent2: #e0522c;
+}
+
+.rv-sr {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,1px,1px);
+  border: 0;
+}
+
+.rv-form {
+  display: grid;
+  gap: 10px;
+  border: 1px solid var(--rv-border);
+  background: var(--rv-bg);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.rv-field {
+  display: grid;
+  gap: 6px;
+}
+
+.rv-label { font-weight: 700; }
+
+.rv-input, .rv-textarea, .rv-select {
+  padding: 10px 12px;
+  border: 1px solid var(--rv-border);
+  background: var(--rv-bg);
+  color: var(--rv-text);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.rv-textarea { resize: vertical; }
+
+.rv-error { border-color: #d93025; }
+.rv-error-text { color: #d93025; font-size: 12px; }
+
+.rv-photos-placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px dashed var(--rv-border);
+  border-radius: 10px;
+  color: var(--rv-muted);
+  background: var(--rv-bg-muted);
+}
+
+.rv-actions { display: flex; gap: 8px; }
+
+.rv-btn {
+  background: transparent;
+  border: 1px solid var(--rv-border);
+  color: var(--rv-text);
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.rv-btn--primary {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(135deg, var(--rv-accent1), var(--rv-accent2));
+  box-shadow: 0 10px 24px rgba(224,82,44,0.35);
+}
+
+/* Stars */
+.rv-stars {
+  display: inline-flex;
+  gap: 4px;
+}
+.rv-star {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rv-border);
+  background: var(--rv-bg);
+  color: #ffb400;
+  cursor: pointer;
+  font-size: 18px;
+}
+.rv-stars--sm .rv-star { width: 22px; height: 22px; font-size: 14px; }
+.rv-stars--lg .rv-star { width: 34px; height: 34px; font-size: 22px; }
+.rv-star.is-filled { background: color-mix(in srgb, #ffb400 20%, var(--rv-bg)); }
+.rv-star:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--rv-accent2) 45%, transparent); }
+
+/* Average badge */
+.rv-avg { display: inline-flex; align-items: center; gap: 6px; }
+.rv-avg-text { display: inline-flex; align-items: baseline; gap: 4px; }
+.rv-avg-sub { font-size: 12px; opacity: 0.7; }
+
+/* List */
+.rv-toolbar { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+.rv-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.rv-item {
+  border: 1px solid var(--rv-border);
+  background: var(--rv-bg);
+  border-radius: 12px;
+  padding: 10px;
+}
+.rv-item-head { display: grid; gap: 4px; }
+.rv-item-title { font-size: 16px; }
+.rv-item-meta { display: flex; align-items: center; gap: 8px; font-size: 13px; opacity: 0.8; }
+.rv-dot { opacity: 0.6; }
+.rv-item-text { margin: 6px 0 8px 0; }
+.rv-item-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.rv-chip {
+  background: transparent;
+  border: 1px solid var(--rv-border);
+  color: var(--rv-text);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.rv-chip--danger { border-color: #d93025; color: #d93025; }
+.rv-more { margin-top: 8px; }
+.rv-empty { opacity: 0.8; }

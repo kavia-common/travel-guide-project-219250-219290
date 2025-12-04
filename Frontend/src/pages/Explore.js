@@ -2,6 +2,9 @@ import React from 'react';
 import '../App.css';
 import { Container } from '../components/SharedUI';
 import { DestinationCard } from '../components/SharedUI';
+import AverageRatingBadge from '../reviews/components/AverageRatingBadge';
+import { Link, useNavigate } from 'react-router-dom';
+import { useReviews } from '../reviews/ReviewsContext';
 import '../components/SharedUI.css';
 import '../components/Header.css';
 
@@ -50,10 +53,9 @@ export default function Explore() {
     }
   ];
 
+  const navigate = useNavigate();
   const handleView = (title) => {
-    // Placeholder action for now. Later, this can navigate to a detail page.
-    // eslint-disable-next-line no-alert
-    alert(`Viewing details for ${title}`);
+    navigate(`/destinations/${encodeURIComponent(title)}`);
   };
 
   return (
@@ -74,6 +76,12 @@ export default function Explore() {
                 onClick={() => handleView(d.title)}
                 actionLabel="View"
               />
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 6px' }}>
+                <AverageRatingBadge entityType="destination" entityId={d.title} size="sm" />
+                <Link to={`/destinations/${encodeURIComponent(d.title)}`} className="App-link" aria-label={`Read reviews for ${d.title}`}>
+                  Read reviews →
+                </Link>
+              </div>
             </div>
           ))}
         </div>

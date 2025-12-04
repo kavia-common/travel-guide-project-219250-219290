@@ -11,6 +11,9 @@ import CurrencyPage from './pages/Currency';
 import GalleryPage from './pages/Gallery';
 import UploadPhotoPage from './pages/UploadPhoto';
 import { PhotosProvider } from './photos/PhotosContext';
+import { ReviewsProvider } from './reviews/ReviewsContext';
+import ReviewsDemoPage from './pages/ReviewsDemo';
+import DestinationDetailsPage from './pages/DestinationDetails';
 
 /**
  * PUBLIC_INTERFACE
@@ -44,20 +47,24 @@ function App() {
       <BrowserRouter>
         <NotificationsProvider>
           <PhotosProvider>
-            <Header />
-            <main id="main" role="main" tabIndex={-1}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/explore" element={<Explore />} />
-                <Route path="/notifications" element={<NotificationsPage />} />
-                <Route path="/currency" element={<CurrencyPage />} />
-                <Route path="/gallery" element={<GalleryPage />} />
-                <Route path="/gallery/upload" element={<UploadPhotoPage />} />
-                <Route path="/gallery/:photoId" element={<GalleryPage />} />
-                {/* Keep existing or future navigation intact by centralizing routes here */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
+            <ReviewsProvider>
+              <Header />
+              <main id="main" role="main" tabIndex={-1}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/explore" element={<Explore />} />
+                  <Route path="/destinations/:id" element={<DestinationDetailsPage />} />
+                  <Route path="/reviews" element={<ReviewsDemoPage />} />
+                  <Route path="/notifications" element={<NotificationsPage />} />
+                  <Route path="/currency" element={<CurrencyPage />} />
+                  <Route path="/gallery" element={<GalleryPage />} />
+                  <Route path="/gallery/upload" element={<UploadPhotoPage />} />
+                  <Route path="/gallery/:photoId" element={<GalleryPage />} />
+                  {/* Keep existing or future navigation intact by centralizing routes here */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </main>
+            </ReviewsProvider>
           </PhotosProvider>
         </NotificationsProvider>
       </BrowserRouter>
