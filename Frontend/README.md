@@ -2,6 +2,13 @@
 
 This project provides a minimal React template with a clean, modern UI and minimal dependencies.
 
+New: Photo Gallery
+- Gallery at /gallery with responsive grid, search and location filter
+- Lightbox viewer with keyboard navigation (Esc/Arrow keys)
+- Upload flow at /gallery/upload storing photos in-memory (no backend yet)
+- Share links (copy to clipboard) use client routes like /gallery/:id
+- Ready to integrate a backend later via PhotosService using REACT_APP_BACKEND_URL
+
 ## Features
 
 - **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React

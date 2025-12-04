@@ -8,6 +8,9 @@ import Header from './components/Header';
 import NotificationsPage from './pages/Notifications';
 import { NotificationsProvider } from './notifications/NotificationsContext';
 import CurrencyPage from './pages/Currency';
+import GalleryPage from './pages/Gallery';
+import UploadPhotoPage from './pages/UploadPhoto';
+import { PhotosProvider } from './photos/PhotosContext';
 
 /**
  * PUBLIC_INTERFACE
@@ -40,17 +43,22 @@ function App() {
 
       <BrowserRouter>
         <NotificationsProvider>
-          <Header />
-          <main id="main" role="main" tabIndex={-1}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/explore" element={<Explore />} />
-              <Route path="/notifications" element={<NotificationsPage />} />
-              <Route path="/currency" element={<CurrencyPage />} />
-              {/* Keep existing or future navigation intact by centralizing routes here */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
+          <PhotosProvider>
+            <Header />
+            <main id="main" role="main" tabIndex={-1}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/explore" element={<Explore />} />
+                <Route path="/notifications" element={<NotificationsPage />} />
+                <Route path="/currency" element={<CurrencyPage />} />
+                <Route path="/gallery" element={<GalleryPage />} />
+                <Route path="/gallery/upload" element={<UploadPhotoPage />} />
+                <Route path="/gallery/:photoId" element={<GalleryPage />} />
+                {/* Keep existing or future navigation intact by centralizing routes here */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+          </PhotosProvider>
         </NotificationsProvider>
       </BrowserRouter>
     </div>

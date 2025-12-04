@@ -1,0 +1,169 @@
+:root {
+  --gl-gap: 12px;
+  --gl-card-radius: 14px;
+  --gl-border: var(--border-color);
+  --gl-bg: var(--bg-primary);
+  --gl-muted: rgba(0,0,0,0.6);
+}
+[data-theme="dark"] {
+  --gl-muted: rgba(255,255,255,0.75);
+}
+
+.gl-toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.gl-input, .gl-select {
+  padding: 10px 12px;
+  border: 1px solid var(--gl-border);
+  background: var(--gl-bg);
+  color: var(--text-primary);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.gl-grid {
+  --min: 220px;
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(var(--min), 1fr) );
+  gap: var(--gl-gap);
+}
+
+.gl-card {
+  border: 1px solid var(--gl-border);
+  background: var(--gl-bg);
+  border-radius: var(--gl-card-radius);
+  overflow: hidden;
+  display: grid;
+}
+
+.gl-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.gl-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-secondary);
+}
+
+.gl-card__body {
+  padding: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.gl-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--gl-muted);
+}
+
+.gl-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.gl-btn {
+  background: transparent;
+  border: 1px solid var(--gl-border);
+  color: var(--text-primary);
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.gl-btn--primary {
+  background: linear-gradient(135deg, #ff8a4c, #e0522c);
+  color: #fff;
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.gl-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, #000 65%, transparent);
+  padding: 16px;
+}
+
+.gl-lightbox__dialog {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  width: min(96vw, 980px);
+  border-radius: 14px;
+  border: 1px solid var(--gl-border);
+  padding: 10px;
+  display: grid;
+  gap: 10px;
+  outline: none;
+}
+
+.gl-lightbox__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gl-lightbox__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.gl-lightbox__content {
+  display: grid;
+  gap: 8px;
+}
+
+.gl-lightbox__imgwrap {
+  width: 100%;
+  max-height: 68vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+}
+
+.gl-lightbox__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gl-lightbox__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.gl-sr {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 1px, 1px);
+  border: 0;
+}
