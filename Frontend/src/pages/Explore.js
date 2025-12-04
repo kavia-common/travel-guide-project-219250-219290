@@ -4,6 +4,7 @@ import { Container } from '../components/SharedUI';
 import { DestinationCard } from '../components/SharedUI';
 import AverageRatingBadge from '../reviews/components/AverageRatingBadge';
 import { Link, useNavigate } from 'react-router-dom';
+import MapWidget from '../maps/components/MapWidget';
 import { useReviews } from '../reviews/ReviewsContext';
 import '../components/SharedUI.css';
 import '../components/Header.css';
@@ -80,6 +81,14 @@ export default function Explore() {
                 <AverageRatingBadge entityType="destination" entityId={d.title} size="sm" />
                 <Link to={`/destinations/${encodeURIComponent(d.title)}`} className="App-link" aria-label={`Read reviews for ${d.title}`}>
                   Read reviews →
+                </Link>
+              </div>
+              <div style={{ marginTop: 6 }}>
+                <MapWidget destName={d.title} height={120} />
+              </div>
+              <div style={{ marginTop: 6 }}>
+                <Link to={`/maps?dest=${encodeURIComponent(d.title)}`} className="App-link" aria-label={`View ${d.title} on map`}>
+                  View on Map →
                 </Link>
               </div>
             </div>

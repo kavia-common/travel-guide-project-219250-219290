@@ -8,6 +8,7 @@ import { useReviews } from '../reviews/ReviewsContext';
 import '../components/SharedUI.css';
 import '../components/Header.css';
 import '../App.css';
+import MapWidget from '../maps/components/MapWidget';
 
 /**
  * PUBLIC_INTERFACE
@@ -58,6 +59,15 @@ export default function DestinationDetailsPage() {
         <div style={{ display: 'grid', gap: 12 }}>
           <ReviewForm entityType="destination" entityId={id} onSubmit={onSubmit} />
           <ReviewsList entityType="destination" entityId={id} />
+        </div>
+
+        <div style={{ marginTop: 12 }}>
+          <MapWidget destName={id} />
+        </div>
+        <div style={{ marginTop: 12 }}>
+          <Link to={`/maps?dest=${encodeURIComponent(id)}`} className="App-link" aria-label={`View ${id} on map`}>
+            View on Map →
+          </Link>
         </div>
 
         <div style={{ marginTop: 12 }}>

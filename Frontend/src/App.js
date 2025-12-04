@@ -31,6 +31,10 @@ import AccommodationsHub from './accommodations/pages/AccommodationsHub';
 import AccommodationDetails from './accommodations/pages/AccommodationDetails';
 import BookingConfirmation from './accommodations/pages/BookingConfirmation';
 
+// Maps feature (mock)
+import MapsHub from './maps/pages/MapsHub';
+import OfflineInfo from './maps/pages/OfflineInfo';
+
 /**
  * PUBLIC_INTERFACE
  * Root application component providing theme toggle and client-side routing.
@@ -94,6 +98,10 @@ function App() {
                           <Route path="/stays" element={<AccommodationsHub />} />
                           <Route path="/stays/:id" element={<AccommodationDetails />} />
                           <Route path="/stays/booking/:reservationId" element={<BookingConfirmation />} />
+
+                          {/* Maps feature routes */}
+                          <Route path="/maps" element={<MapsHub />} />
+                          <Route path="/maps/offline" element={<OfflineInfo />} />
 
                           {/* Keep existing or future navigation intact by centralizing routes here */}
                           <Route path="*" element={<NotFound />} />
