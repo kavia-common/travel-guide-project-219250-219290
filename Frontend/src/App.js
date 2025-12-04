@@ -14,6 +14,9 @@ import { PhotosProvider } from './photos/PhotosContext';
 import { ReviewsProvider } from './reviews/ReviewsContext';
 import ReviewsDemoPage from './pages/ReviewsDemo';
 import DestinationDetailsPage from './pages/DestinationDetails';
+import SafetyHub from './pages/SafetyHub';
+import SafetyDetails from './pages/SafetyDetails';
+import { SafetyProvider } from './safety/SafetyContext';
 
 /**
  * PUBLIC_INTERFACE
@@ -48,22 +51,26 @@ function App() {
         <NotificationsProvider>
           <PhotosProvider>
             <ReviewsProvider>
-              <Header />
-              <main id="main" role="main" tabIndex={-1}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/explore" element={<Explore />} />
-                  <Route path="/destinations/:id" element={<DestinationDetailsPage />} />
-                  <Route path="/reviews" element={<ReviewsDemoPage />} />
-                  <Route path="/notifications" element={<NotificationsPage />} />
-                  <Route path="/currency" element={<CurrencyPage />} />
-                  <Route path="/gallery" element={<GalleryPage />} />
-                  <Route path="/gallery/upload" element={<UploadPhotoPage />} />
-                  <Route path="/gallery/:photoId" element={<GalleryPage />} />
-                  {/* Keep existing or future navigation intact by centralizing routes here */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </main>
+              <SafetyProvider>
+                <Header />
+                <main id="main" role="main" tabIndex={-1}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/explore" element={<Explore />} />
+                    <Route path="/destinations/:id" element={<DestinationDetailsPage />} />
+                    <Route path="/reviews" element={<ReviewsDemoPage />} />
+                    <Route path="/notifications" element={<NotificationsPage />} />
+                    <Route path="/currency" element={<CurrencyPage />} />
+                    <Route path="/gallery" element={<GalleryPage />} />
+                    <Route path="/gallery/upload" element={<UploadPhotoPage />} />
+                    <Route path="/gallery/:photoId" element={<GalleryPage />} />
+                    <Route path="/safety" element={<SafetyHub />} />
+                    <Route path="/safety/:regionCode" element={<SafetyDetails />} />
+                    {/* Keep existing or future navigation intact by centralizing routes here */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </main>
+              </SafetyProvider>
             </ReviewsProvider>
           </PhotosProvider>
         </NotificationsProvider>
