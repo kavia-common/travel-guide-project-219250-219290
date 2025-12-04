@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import { Hero, Container } from '../components/SharedUI';
 import '../components/SharedUI.css';
 import '../components/Header.css';
+import CurrencyConverterWidget from '../components/CurrencyConverterWidget';
 
 // PUBLIC_INTERFACE
 export default function Home() {
@@ -38,6 +39,19 @@ export default function Home() {
           <p className="tg-section__subtitle">
             Hand-picked destinations, smart planning tools, and inspiring travel ideas.
           </p>
+        </Container>
+      </section>
+
+      <section className="tg-section" aria-label="Quick currency conversion">
+        <Container>
+          <h2 className="tg-section__title">Travel smarter with quick currency conversion</h2>
+          <p className="tg-section__subtitle">Use the compact converter below or open the full page for more details.</p>
+          <CurrencyConverterWidget compact />
+          <div style={{ marginTop: 10 }}>
+            <Link to="/currency" className="tg-btn" aria-label="Open full currency converter">
+              Open full converter →
+            </Link>
+          </div>
         </Container>
       </section>
     </div>

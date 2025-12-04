@@ -7,6 +7,7 @@ import Explore from './pages/Explore';
 import Header from './components/Header';
 import NotificationsPage from './pages/Notifications';
 import { NotificationsProvider } from './notifications/NotificationsContext';
+import CurrencyPage from './pages/Currency';
 
 /**
  * PUBLIC_INTERFACE
@@ -45,6 +46,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/explore" element={<Explore />} />
               <Route path="/notifications" element={<NotificationsPage />} />
+              <Route path="/currency" element={<CurrencyPage />} />
               {/* Keep existing or future navigation intact by centralizing routes here */}
               <Route path="*" element={<NotFound />} />
             </Routes>

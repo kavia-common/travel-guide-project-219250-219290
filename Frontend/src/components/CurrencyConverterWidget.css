@@ -1,0 +1,137 @@
+:root {
+  --cc-accent-1: #ff8a4c;
+  --cc-accent-2: #e0522c;
+  --cc-border: var(--border-color, #e7e9ee);
+  --cc-bg: var(--bg-primary, #fff);
+  --cc-bg-muted: var(--bg-secondary, #f7f8fa);
+  --cc-text: var(--text-primary, #1e1f25);
+  --cc-muted: rgba(0,0,0,0.6);
+}
+
+[data-theme="dark"] {
+  --cc-muted: rgba(255,255,255,0.75);
+}
+
+.ccw {
+  border: 1px solid var(--cc-border);
+  background: var(--cc-bg);
+  border-radius: 14px;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.ccw--compact {
+  padding: 12px;
+}
+
+.ccw__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.ccw__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+  align-items: end;
+}
+
+@media (max-width: 800px) {
+  .ccw__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ccw__submit {
+    grid-column: span 2;
+  }
+}
+
+.ccw__field {
+  display: grid;
+  gap: 6px;
+}
+
+.ccw__label {
+  font-size: 12px;
+  color: var(--cc-muted);
+}
+
+.ccw__input, .ccw__select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--cc-border);
+  background: var(--cc-bg);
+  color: var(--cc-text);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.ccw__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--cc-accent-1), var(--cc-accent-2));
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(224, 82, 44, 0.35);
+}
+
+.ccw__result {
+  display: grid;
+  gap: 4px;
+  background: var(--cc-bg-muted);
+  border: 1px solid var(--cc-border);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.ccw__result-main {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.ccw__result-sub {
+  font-size: 12px;
+  color: var(--cc-muted);
+}
+
+.ccw__presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ccw__chip {
+  background: transparent;
+  border: 1px solid var(--cc-border);
+  color: var(--cc-text);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ccw__rates {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--cc-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ccw__rates th, .ccw__rates td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--cc-border);
+  font-size: 13px;
+}
+
+.ccw__rates thead {
+  background: var(--cc-bg-muted);
+}
