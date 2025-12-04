@@ -1,0 +1,231 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.acc-searchbar {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0.5rem 0 1rem;
+}
+.acc-searchbar input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+.btn-secondary {
+  background: #111827;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+.chip {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip-active {
+  background: #e0ecff;
+  border-color: #93c5fd;
+}
+
+.price-filter {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+}
+.price-filter .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rating-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.acc-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+.acc-grid-item {
+  grid-column: span 12;
+}
+@media (min-width: 600px) {
+  .acc-grid-item {
+    grid-column: span 6;
+  }
+}
+@media (min-width: 900px) {
+  .acc-grid-item {
+    grid-column: span 4;
+  }
+}
+
+.acc-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.acc-card-photo {
+  background-size: cover;
+  background-position: center;
+  height: 160px;
+}
+.acc-card-body {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.acc-card-title {
+  margin: 0;
+  font-size: 1rem;
+}
+.acc-card-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.acc-card-meta .badge {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+}
+.acc-card-meta .rating {
+  margin-left: auto;
+}
+.acc-card-price {
+  display: flex;
+  gap: 0.3rem;
+  align-items: baseline;
+}
+.acc-card-price .price {
+  font-weight: 700;
+}
+.acc-card-actions {
+  margin-top: 0.25rem;
+}
+
+.booking-widget {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: #fff;
+}
+.booking-widget .field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  gap: 0.25rem;
+}
+.booking-widget .stepper {
+  display: inline-flex;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.booking-widget .stepper button {
+  background: #f9fafb;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+.booking-widget .stepper input {
+  width: 3rem;
+  border: none;
+  text-align: center;
+}
+.booking-widget .estimate {
+  margin: 0.5rem 0;
+}
+.error {
+  color: #b91c1c;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.acc-filters {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.acc-filters > * {
+  grid-column: span 12;
+}
+@media (min-width: 900px) {
+  .acc-filters > .types { grid-column: span 4; }
+  .acc-filters > .price { grid-column: span 4; }
+  .acc-filters > .rating { grid-column: span 4; }
+  .acc-filters > .amenities { grid-column: span 12; }
+}
+
+.details-layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+.details-photos {
+  grid-column: span 12;
+}
+.details-info {
+  grid-column: span 12;
+}
+@media (min-width: 900px) {
+  .details-photos { grid-column: span 8; }
+  .details-info { grid-column: span 4; }
+}
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.5rem;
+}
+.photo-gallery .ph {
+  grid-column: span 12;
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  border-radius: 10px;
+}
+@media (min-width: 600px) {
+  .photo-gallery .ph { grid-column: span 6; height: 200px; }
+}
+@media (min-width: 900px) {
+  .photo-gallery .ph { grid-column: span 6; height: 220px; }
+}

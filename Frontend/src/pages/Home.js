@@ -40,6 +40,14 @@ export default function Home() {
             >
               Start Exploring →
             </Link>
+            <Link
+              to="/stays"
+              className="tg-btn"
+              aria-label="Find a stay"
+              role="button"
+            >
+              Find a Stay →
+            </Link>
           </div>
         }
       />

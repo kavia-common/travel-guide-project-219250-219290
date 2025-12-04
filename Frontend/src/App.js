@@ -25,6 +25,11 @@ import { TransportProvider } from './transport/TransportContext';
 import TransportHub from './transport/pages/TransportHub';
 import TransportDetails from './transport/pages/TransportDetails';
 import ItineraryPage from './pages/Itinerary';
+// Accommodations (Stays) feature
+import { AccommodationsProvider } from './accommodations/AccommodationsContext';
+import AccommodationsHub from './accommodations/pages/AccommodationsHub';
+import AccommodationDetails from './accommodations/pages/AccommodationDetails';
+import BookingConfirmation from './accommodations/pages/BookingConfirmation';
 
 /**
  * PUBLIC_INTERFACE
@@ -63,31 +68,38 @@ function App() {
                 <SafetyProvider>
                   <Header />
                   <TransportProvider>
-                    <main id="main" role="main" tabIndex={-1}>
-                      <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/explore" element={<Explore />} />
-                        <Route path="/destinations/:id" element={<DestinationDetailsPage />} />
-                        <Route path="/reviews" element={<ReviewsDemoPage />} />
-                        <Route path="/notifications" element={<NotificationsPage />} />
-                        <Route path="/currency" element={<CurrencyPage />} />
-                        <Route path="/gallery" element={<GalleryPage />} />
-                        <Route path="/gallery/upload" element={<UploadPhotoPage />} />
-                        <Route path="/gallery/:photoId" element={<GalleryPage />} />
-                        <Route path="/safety" element={<SafetyHub />} />
-                        <Route path="/safety/:regionCode" element={<SafetyDetails />} />
-                        <Route path="/language" element={<LanguageHub />} />
-                        <Route path="/phrasebook" element={<Phrasebook />} />
+                    <AccommodationsProvider>
+                      <main id="main" role="main" tabIndex={-1}>
+                        <Routes>
+                          <Route path="/" element={<Home />} />
+                          <Route path="/explore" element={<Explore />} />
+                          <Route path="/destinations/:id" element={<DestinationDetailsPage />} />
+                          <Route path="/reviews" element={<ReviewsDemoPage />} />
+                          <Route path="/notifications" element={<NotificationsPage />} />
+                          <Route path="/currency" element={<CurrencyPage />} />
+                          <Route path="/gallery" element={<GalleryPage />} />
+                          <Route path="/gallery/upload" element={<UploadPhotoPage />} />
+                          <Route path="/gallery/:photoId" element={<GalleryPage />} />
+                          <Route path="/safety" element={<SafetyHub />} />
+                          <Route path="/safety/:regionCode" element={<SafetyDetails />} />
+                          <Route path="/language" element={<LanguageHub />} />
+                          <Route path="/phrasebook" element={<Phrasebook />} />
 
-                        {/* Transport feature routes */}
-                        <Route path="/transport" element={<TransportHub />} />
-                        <Route path="/transport/:regionCode" element={<TransportDetails />} />
-                        <Route path="/itinerary" element={<ItineraryPage />} />
+                          {/* Transport feature routes */}
+                          <Route path="/transport" element={<TransportHub />} />
+                          <Route path="/transport/:regionCode" element={<TransportDetails />} />
+                          <Route path="/itinerary" element={<ItineraryPage />} />
 
-                        {/* Keep existing or future navigation intact by centralizing routes here */}
-                        <Route path="*" element={<NotFound />} />
-                      </Routes>
-                    </main>
+                          {/* Stays feature routes */}
+                          <Route path="/stays" element={<AccommodationsHub />} />
+                          <Route path="/stays/:id" element={<AccommodationDetails />} />
+                          <Route path="/stays/booking/:reservationId" element={<BookingConfirmation />} />
+
+                          {/* Keep existing or future navigation intact by centralizing routes here */}
+                          <Route path="*" element={<NotFound />} />
+                        </Routes>
+                      </main>
+                    </AccommodationsProvider>
                   </TransportProvider>
                 </SafetyProvider>
               </ReviewsProvider>
