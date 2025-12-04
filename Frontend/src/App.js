@@ -4,10 +4,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Explore from './pages/Explore';
+import Header from './components/Header';
 
-// PUBLIC_INTERFACE
+/**
+ * PUBLIC_INTERFACE
+ * Root application component providing theme toggle and client-side routing.
+ * Renders a persistent site header and a main landmark for page content.
+ */
 function App() {
-  /** Root application component providing theme toggle and client-side routing. */
   const [theme, setTheme] = useState('light');
 
   // Apply theme to document element for CSS variable theming
@@ -32,12 +36,15 @@ function App() {
       </button>
 
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/explore" element={<Explore />} />
-          {/* Keep existing or future navigation intact by centralizing routes here */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Header />
+        <main id="main" role="main" tabIndex={-1}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/explore" element={<Explore />} />
+            {/* Keep existing or future navigation intact by centralizing routes here */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
       </BrowserRouter>
     </div>
   );

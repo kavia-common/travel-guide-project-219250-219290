@@ -1,104 +1,94 @@
-/* CSS Variables for Theme Management */
+/* CSS Variables for Theme Management and base styling */
 :root {
-  /* Light theme colors */
   --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
+  --bg-secondary: #f7f8fa;
+  --text-primary: #1e1f25;
+  --text-secondary: #2c7be5; /* used by legacy .App-link */
+  --border-color: #e7e9ee;
+  --button-bg: #ff7a45;
   --button-text: #ffffff;
 }
 
 [data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
+  --bg-primary: #121317;
+  --bg-secondary: #1a1b21;
   --text-primary: #ffffff;
   --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
+  --border-color: #2a2c35;
+  --button-bg: #e0522c;
   --button-text: #ffffff;
 }
 
+/* Base app wrapper (kept for compatibility) */
 .App {
-  text-align: center;
+  text-align: left;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
-  position: relative;
-}
-
+/* Legacy link color */
 .App-link {
   color: var(--text-secondary);
   transition: color 0.3s ease;
 }
 
+/* Simple visually separated header used in legacy pages */
+.App-header {
+  background-color: var(--bg-secondary);
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
 .theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
   background-color: var(--button-bg);
   color: var(--button-text);
   border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
+  border-radius: 999px;
+  padding: 10px 14px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  z-index: 200;
 }
 
 .theme-toggle:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .theme-toggle:active {
   transform: translateY(0);
 }
 
+/* Typography helpers */
+.title { font-size: 28px; font-weight: 800; margin: 0; }
+.subtitle { font-size: 18px; opacity: 0.8; margin: 0; }
+.description { font-size: 16px; opacity: 0.75; }
+
+/* Keyframes retained for potential icon animations */
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Responsive design for mobile */
 @media (max-width: 768px) {
   .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
+    bottom: 12px;
+    right: 12px;
+    padding: 8px 12px;
     font-size: 12px;
   }
 }
